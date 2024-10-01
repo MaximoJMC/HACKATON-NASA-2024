@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Us a Climate Story!</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo">Climate Story</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="Resources/img/menu.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+            <ul>
+                <li><a href="#">Historia Basada en Datos</a></li>
+                <li><a href="#">Visualizaciones Interactivas</a></li>
+                <li><a href="#">Recursos Educativos</a></li>
+            </ul>
+            </nav>
+            </div>
+            <div class="header-content container">
+                <div class="header-txt">
+                    <span>Desafío Global</span>
+                    <h1>Cambio Climático</h2>
+                    <p>Explora los datos sobre gases de efecto invernadero y su impacto en nuestro planeta.</p>
+                </div>
+                <div class="header-img">
+                    <img src="Resources/img/mundo.png" alt="">
+                </div>
+            </div>
+        </header><br>
+
+        <h2>Impacto del Cambio Climático en EE.UU.</h2>
+    <div id="charts">
+        <canvas id="tempChart" width="400" height="200"></canvas>
+        <canvas id="co2Chart" width="400" height="200"></canvas>
+        <canvas id="renewableChart" width="400" height="200"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script1.js"></script>
+
+        <section id="historia">
+            <h2>Historia (Aumento de las Temperaturas Globales)</h2>
+            <div id="grafico-temperaturas"></div>
+            <p>Desde 1880, la temperatura global ha aumentado significativamente...</p>
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script src="Script.js"></script>
+        </section>
+
+        <section id="visualizaciones">
+            <h2>Visualizaciones Interactivas- Impaacto</h2>
+            <canvas id="grafico-emisiones"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctx = document.getElementById('grafico-emisiones').getContext('2d');
+                const data = {
+    labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'],
+    datasets: [{
+        label: 'Emisiones de CO₂ (millones de toneladas)',
+        data: [3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100, 4200],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderWidth: 1,
+        fill: true,
+    }]
+};
+
+const options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            display: true,
+        },
+        tooltip: {
+            mode: 'index',
+            intersect: false,
+        },
+    },
+    scales: {
+        x: {
+            title: {
+                display: true,
+                text: 'Años',
+            }
+        },
+        y: {
+            title: {
+                display: true,
+                text: 'Emisiones (millones de toneladas)',
+            },
+            beginAtZero: true,
+        }
+    }
+};
+
+const graficoEmisiones = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: options,
+});
+            </script>
+        </section>
+        <section id="recursos">
+            <h2>Recursos Educativos</h2>
+            <ul>
+                <li><a href="https://www.ipcc.ch">Informes del IPCC</a></li>
+                <li><a href="glosario.html">Glosario de términos</a></li>
+            </ul>
+        </section>
+        <section id="conclusiones">
+            <h2>Conclusiones y Llamado a la Acción</h2>
+            <p>El cambio climático es un desafío crítico que requiere nuestra atención...</p>
+            <p>Únete a la lucha contra el cambio climático tomando acciones como...</p>
+        </section> 
+        <footer>
+            <div class="team">
+                <div class="member">
+                    <img src="Resources/img/person.png" alt="Nombre 1">
+                    <p>Xiomara Rojas<br>Ingenieria Ciencia de Datos e IA</p>
+                </div>
+                <div class="member">
+                    <img src="Resources/img/person.png" alt="Nombre 2">
+                    <p>Freddy Soto<br>Ingenieria Ciencia de Datos e IA</p>
+                </div>
+                <div class="member">
+                    <img src="Resources/img/person.png" alt="Nombre 3">
+                    <p>Jordy Ticona<br>Ingenieria Ciencia de Datos e IA</p>
+                </div>
+                <div class="member">
+                    <img src="Resources/img/person.png" alt="Nombre 4">
+                    <p>Maximo Mamani<br>Ingenieria Ciencia de Datos e IA</p>
+                </div>
+                <div class="member">
+                    <img src="Resources/img/person.png" alt="Nombre 5">
+                    <p>Alexander<br>Ingeniero de Sistemas</p>
+                </div>
+                <div class="member">
+                    <img src="Resources/img/person.png" alt="Anderson Rica">
+                    <p>Anderson Rica<br>Data Analytics</p>
+                </div>
+            </div>
+        </footer>
+            
+
+</body>
+</html>
